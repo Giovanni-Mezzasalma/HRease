@@ -1,0 +1,18 @@
+backend-1  | Operations to perform:
+backend-1  |   Apply all migrations: accounts, admin, auth, contenttypes, leaves, sessions
+backend-1  | Running migrations:
+backend-1  |   No migrations to apply.
+backend-1  | Watching for file changes with StatReloader
+backend-1  | Performing system checks...
+backend-1  | 
+backend-1  | System check identified no issues (0 silenced).
+backend-1  | March 18, 2025 - 23:51:44
+backend-1  | Django version 5.0.2, using settings 'hrease.settings.development'
+backend-1  | Starting development server at http://0.0.0.0:8000/
+backend-1  | Quit the server with CONTROL-C.
+backend-1  | 
+backend-1  | Not Found: /api/auth/login/
+backend-1  | [18/Mar/2025 23:55:38] "POST /api/auth/login/ HTTP/1.1" 404 2483
+backend-1  | [19/Mar/2025 00:02:55] "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+backend-1  | [19/Mar/2025 00:02:56] "POST /api/v1/auth/login/ HTTP/1.1" 200 650
+backend-1  | [19/Mar/2025 00:04:09] "POST /api/v1/auth/login/ HTTP/1.1" 200 650
