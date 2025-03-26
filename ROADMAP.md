@@ -22,7 +22,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [x] Configurazione database PostgreSQL
 - [ ] Implementazione microservizio di logging
   - [ ] **1. Architettura del Microservizio di Logging**
-    - [ ] 1.1 Definizione dell'architettura di alto livello
+    - [x] 1.1 Definizione dell'architettura di alto livello
     - [ ] 1.2 Setup container Docker dedicato per il servizio di logging
     - [ ] 1.3 Configurazione database dedicato per lo storage dei log (Elasticsearch o MongoDB)
     - [ ] 1.4 Implementazione API RESTful per l'ingestione dei log
