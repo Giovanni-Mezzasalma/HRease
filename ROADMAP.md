@@ -24,11 +24,49 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
   - [ ] **1. Architettura del Microservizio di Logging**
     - [x] 1.1 Definizione dell'architettura di alto livello
     - [ ] 1.2 Setup container Docker dedicato per il servizio di logging
+      - [ ] 1.2.1 Creazione struttura directory del microservizio
+      - [ ] 1.2.2 Creazione Dockerfile specifico
+      - [ ] 1.2.3 Creazione package.json con dipendenze necessarie
+      - [ ] 1.2.4 Aggiornamento docker-compose.yml per includere il servizio
+      - [ ] 1.2.5 Creazione file di configurazione per diversi ambienti
+      - [ ] 1.2.6 Implementazione applicazione base con scheletro API
+      - [ ] 1.2.7 Aggiunta variabili d'ambiente al file .env
+      - [ ] 1.2.8 Test di avvio e funzionamento del container
+      - [ ] 1.2.9 Documentazione della configurazione
     - [ ] 1.3 Configurazione database dedicato per lo storage dei log (Elasticsearch o MongoDB)
+      - [ ] 1.3.1 Aggiunta container Elasticsearch al docker-compose.yml
+      - [ ] 1.3.2 Configurazione volumi per persistenza dei dati
+      - [ ] 1.3.3 Configurazione parametri di performance Elasticsearch
+      - [ ] 1.3.4 Implementazione connessione client Elasticsearch
+      - [ ] 1.3.5 Definizione schema indici e mappings
+      - [ ] 1.3.6 Test di connessione e operazioni CRUD base
     - [ ] 1.4 Implementazione API RESTful per l'ingestione dei log
+      - [ ] 1.4.1 Definizione endpoints API (single log, batch)
+      - [ ] 1.4.2 Implementazione controller per gestione richieste
+      - [ ] 1.4.3 Validazione input con schema JSON
+      - [ ] 1.4.4 Implementazione autenticazione basata su API key
+      - [ ] 1.4.5 Implementazione rate limiting per prevenire abusi
+      - [ ] 1.4.6 Documentazione API con OpenAPI/Swagger
+      - [ ] 1.4.7 Test degli endpoints API
     - [ ] 1.5 Configurazione coda di messaggi (RabbitMQ/Kafka) per gestione asincrona
+      - [ ] 1.5.1 Aggiunta container RabbitMQ al docker-compose.yml
+      - [ ] 1.5.2 Implementazione producer per invio messaggi in coda
+      - [ ] 1.5.3 Implementazione consumer per processamento asincrono
+      - [ ] 1.5.4 Configurazione exchange, queue e bindings
+      - [ ] 1.5.5 Implementazione retry pattern per messaggi falliti
+      - [ ] 1.5.6 Monitoraggio stato della coda
     - [ ] 1.6 Implementazione meccanismi di retention e rotazione dei log
+      - [ ] 1.6.1 Definizione policy di retention basate su tempo/volume
+      - [ ] 1.6.2 Implementazione indici time-based con rotazione
+      - [ ] 1.6.3 Configurazione ILM (Index Lifecycle Management)
+      - [ ] 1.6.4 Implementazione archivio cold storage per log storici
+      - [ ] 1.6.5 Implementazione job di pulizia automatica
     - [ ] 1.7 Setup sistema di ricerca e indicizzazione dei log
+      - [ ] 1.7.1 Configurazione analyzer e tokenizer per ricerca efficiente
+      - [ ] 1.7.2 Implementazione query DSL per ricerche complesse
+      - [ ] 1.7.3 Implementazione aggregazioni per analytics
+      - [ ] 1.7.4 Creazione interfaccia di ricerca base
+      - [ ] 1.7.5 Implementazione filtri e visualizzazione risultati
   - [ ] **2. Integrazione Backend (Django)**
     - [ ] 2.1 Sviluppo client logger per Django
     - [ ] 2.2 Configurazione middleware per logging richieste HTTP
