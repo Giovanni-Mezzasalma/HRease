@@ -1,6 +1,0 @@
-- pipeline.id: events
-  path.config: "/etc/pipelines/events.conf"
-  pipeline.workers: 1
-- pipeline.id: news
-  path.config: "/etc/pipelines/hrease.conf"
-  pipeline.workers: 3
