@@ -1,0 +1,10 @@
+  logging-service:
+    build:
+      context: ./logging-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./logging-service/logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped

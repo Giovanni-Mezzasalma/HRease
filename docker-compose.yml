@@ -2,7 +2,7 @@ services:
   db:
     image: postgres:15
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data
     env_file:
       - ./.env
     environment:
@@ -31,8 +31,9 @@ services:
     env_file:
       - ./.env
     command: >
-      sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - app-network
 
   frontend:
     build:
@@ -49,6 +50,8 @@ services:
       - backend
     environment:
       - REACT_APP_API_URL=http://localhost:8000/api
+    networks:
+      - app-network
 
   nginx:
     image: nginx:stable-alpine
@@ -60,6 +63,24 @@ services:
     depends_on:
       - backend
       - frontend
+    networks:
+      - app-network
+
+  logging-service:
+    build:
+      context: ./logging-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./logging-service/logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - app-network
 
 volumes:
   postgres_data:
+
+networks:
+  app-network:

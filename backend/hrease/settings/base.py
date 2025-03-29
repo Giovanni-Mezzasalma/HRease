@@ -3,6 +3,12 @@ import os
 from pathlib import Path
 from datetime import timedelta
 
+#test logging
+import logging
+logger = logging.getLogger(__name__)
+logger.info("Test log - se lo vedi nella console, il logging funziona!")
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -141,3 +147,50 @@ TEMPLATES = [
 
 # Frontend URL for password reset links
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
+
+# Aggiungi questa riga alle altre configurazioni
+LOGGING_SERVICE_URL = os.environ.get('LOGGING_SERVICE_URL', 'http://logging-service:8080')
+
+# Configurazione del logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '{levelname} {asctime} {message}',
+            'style': '{',
+        },
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'simple_log_service': {
+            'level': 'INFO',
+            'class': 'apps.core.logging.SimpleLogHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'simple_log_service'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'apps': {
+            'handlers': ['console', 'simple_log_service'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+    'root': {
+        'handlers': ['console', 'simple_log_service'],
+        'level': 'INFO',
+    },
+}
