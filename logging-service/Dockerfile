@@ -1,11 +1,13 @@
 # Usa Node.js 18 con Alpine Linux per un'immagine leggera
 FROM node:18-alpine
 
+# Installa il client Docker
+RUN apk add --no-cache docker-cli
+
 # Stabilisce la directory di lavoro all'interno del container
 WORKDIR /app
 
 # Copia i file package.json e package-lock.json
-# Questi vengono copiati prima del resto del codice per sfruttare il caching di Docker
 COPY package*.json ./
 
 # Installa le dipendenze
