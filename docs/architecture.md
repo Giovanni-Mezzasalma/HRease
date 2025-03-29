@@ -83,27 +83,51 @@ Il frontend è una SPA sviluppata con React e TypeScript.
 - **Hooks**: Hook React personalizzati
 - **Utils**: Utility e helper
 
-## Architettura del Microservizio di Logging
+## Architettura del Microservizio di Logging Semplificato
 
-Il sistema di logging è implementato come un microservizio autonomo per garantire scalabilità, resilienza e centralizzazione della gestione dei log.
+Il sistema di logging è implementato come un microservizio leggero per garantire tracciabilità delle operazioni e facilitare il debugging senza aggiungere complessità eccessiva all'architettura complessiva.
 
-![Architettura Logging](../diagrams/logging_architecture.png)
+![Architettura Logging Semplificata](../diagrams/logging_simple_architecture.png)
+
+*Nota: Il diagramma sopra è un riferimento per future implementazioni.*
 
 ### Componenti principali
 
-- **API Layer**: Gestisce l'ingestione e la query dei log
-- **Processing Layer**: Elabora, arricchisce e valida i log
-- **Storage Layer**: Archivia i log con strategie di retention appropriate
-- **Analytics Layer**: Fornisce capacità di analisi avanzate sui log
-- **UI Layer**: Offre dashboard per visualizzazione e analisi
+- **Server Node.js/Express**: Core del microservizio che espone API REST per la ricezione e consultazione dei log
+- **Storage basato su file JSON**: Archiviazione semplice dei log senza dipendenze da database esterni
+- **Collettori di log**: Componenti per raccogliere log da diverse fonti (backend, frontend, container Docker)
+- **Dashboard web**: Interfaccia utente HTML/CSS/JS per visualizzare e filtrare i log
 
 ### Integrazione con altri servizi
 
 - Il backend e il frontend inviano log al microservizio tramite API REST
-- I log vengono raccolti in batch per ottimizzare le prestazioni
-- Il microservizio offre un'interfaccia web per la consultazione e l'analisi
+- I log dei container Docker vengono raccolti periodicamente tramite CLI Docker
+- L'interfaccia web fornisce una visualizzazione centralizzata di tutti i log
 
 *Per maggiori dettagli, consultare [logging_architecture.md](./logging_architecture.md)*
+
+### Flusso dei dati
+
+1. **Generazione**: Le applicazioni generano eventi di log durante l'esecuzione
+2. **Invio**: I log vengono inviati in modo asincrono al microservizio
+3. **Processamento**: Il microservizio normalizza e organizza i log
+4. **Storage**: I log vengono salvati in file JSON organizzati per sorgente
+5. **Consultazione**: L'interfaccia web permette di visualizzare e filtrare i log
+
+### Vantaggi dell'approccio semplificato
+
+- Implementazione rapida con poche dipendenze
+- Basso overhead operativo
+- Facile manutenzione e comprensione
+- Può evolvere gradualmente in base alle esigenze
+
+### Possibile evoluzione futura
+
+Il sistema è progettato per essere esteso gradualmente nel tempo:
+1. **Fase 1**: Sistema attuale basato su file (implementazione corrente)
+2. **Fase 2**: Aggiunta di database NoSQL leggero per query migliorate
+3. **Fase 3**: Implementazione di grafici e visualizzazioni più avanzate
+4. **Fase 4**: Integrazione con sistemi di monitoraggio esterni (opzionale)
 
 ## Infrastruttura e Deployment
 

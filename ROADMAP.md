@@ -10,7 +10,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 ### Modifiche Recenti
 - ✅ Correzione dell'URL API nel frontend (aggiunta del prefisso `/v1`)
 - ✅ Aggiornamento del file `.env.example` con l'URL API corretto
-- ✅ Decisione di implementare il sistema di logging come microservizio indipendente
+- ✅ Decisione di implementare il sistema di logging come microservizio semplificato
 
 ## Modulo 1: Gestione Ferie e Permessi (Q2 2025 - Q1 2026)
 
@@ -20,76 +20,32 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [x] Struttura base backend Django/DRF
 - [x] Struttura base frontend React/TypeScript
 - [x] Configurazione database PostgreSQL
-- [ ] Implementazione microservizio di logging
-  - [ ] **1. Architettura del Microservizio di Logging**
+- [ ] Implementazione microservizio di logging semplificato
+  - [ ] **1. Architettura del Microservizio di Logging Semplificato**
     - [x] 1.1 Definizione dell'architettura di alto livello
     - [ ] 1.2 Setup container Docker dedicato per il servizio di logging
       - [ ] 1.2.1 Creazione struttura directory del microservizio
       - [ ] 1.2.2 Creazione Dockerfile specifico
       - [ ] 1.2.3 Creazione package.json con dipendenze necessarie
       - [ ] 1.2.4 Aggiornamento docker-compose.yml per includere il servizio
-      - [ ] 1.2.5 Creazione file di configurazione per diversi ambienti
-      - [ ] 1.2.6 Implementazione applicazione base con scheletro API
-      - [ ] 1.2.7 Aggiunta variabili d'ambiente al file .env
-      - [ ] 1.2.8 Test di avvio e funzionamento del container
-      - [ ] 1.2.9 Documentazione della configurazione
-    - [ ] 1.3 Configurazione database dedicato per lo storage dei log (Elasticsearch o MongoDB)
-      - [ ] 1.3.1 Aggiunta container Elasticsearch al docker-compose.yml
-      - [ ] 1.3.2 Configurazione volumi per persistenza dei dati
-      - [ ] 1.3.3 Configurazione parametri di performance Elasticsearch
-      - [ ] 1.3.4 Implementazione connessione client Elasticsearch
-      - [ ] 1.3.5 Definizione schema indici e mappings
-      - [ ] 1.3.6 Test di connessione e operazioni CRUD base
-    - [ ] 1.4 Implementazione API RESTful per l'ingestione dei log
-      - [ ] 1.4.1 Definizione endpoints API (single log, batch)
-      - [ ] 1.4.2 Implementazione controller per gestione richieste
-      - [ ] 1.4.3 Validazione input con schema JSON
-      - [ ] 1.4.4 Implementazione autenticazione basata su API key
-      - [ ] 1.4.5 Implementazione rate limiting per prevenire abusi
-      - [ ] 1.4.6 Documentazione API con OpenAPI/Swagger
-      - [ ] 1.4.7 Test degli endpoints API
-    - [ ] 1.5 Configurazione coda di messaggi (RabbitMQ/Kafka) per gestione asincrona
-      - [ ] 1.5.1 Aggiunta container RabbitMQ al docker-compose.yml
-      - [ ] 1.5.2 Implementazione producer per invio messaggi in coda
-      - [ ] 1.5.3 Implementazione consumer per processamento asincrono
-      - [ ] 1.5.4 Configurazione exchange, queue e bindings
-      - [ ] 1.5.5 Implementazione retry pattern per messaggi falliti
-      - [ ] 1.5.6 Monitoraggio stato della coda
-    - [ ] 1.6 Implementazione meccanismi di retention e rotazione dei log
-      - [ ] 1.6.1 Definizione policy di retention basate su tempo/volume
-      - [ ] 1.6.2 Implementazione indici time-based con rotazione
-      - [ ] 1.6.3 Configurazione ILM (Index Lifecycle Management)
-      - [ ] 1.6.4 Implementazione archivio cold storage per log storici
-      - [ ] 1.6.5 Implementazione job di pulizia automatica
-    - [ ] 1.7 Setup sistema di ricerca e indicizzazione dei log
-      - [ ] 1.7.1 Configurazione analyzer e tokenizer per ricerca efficiente
-      - [ ] 1.7.2 Implementazione query DSL per ricerche complesse
-      - [ ] 1.7.3 Implementazione aggregazioni per analytics
-      - [ ] 1.7.4 Creazione interfaccia di ricerca base
-      - [ ] 1.7.5 Implementazione filtri e visualizzazione risultati
-  - [ ] **2. Integrazione Backend (Django)**
-    - [ ] 2.1 Sviluppo client logger per Django
-    - [ ] 2.2 Configurazione middleware per logging richieste HTTP
-    - [ ] 2.3 Integrazione con il sistema di eccezioni Django
-    - [ ] 2.4 Implementazione logging di audit per operazioni critiche
-    - [ ] 2.5 Configurazione logging di performance
-  - [ ] **3. Integrazione Frontend (React)**
-    - [ ] 3.1 Sviluppo client logger per React
-    - [ ] 3.2 Creazione servizio logger in utils/logger.ts
-    - [ ] 3.3 Intercettazione e override della console nativa
-    - [ ] 3.4 Implementazione buffer locale con invio batch al microservizio
-    - [ ] 3.5 Logging automatico di errori non gestiti e problemi UI
-  - [ ] **4. Dashboard di Amministrazione dei Log**
-    - [ ] 4.1 Implementazione interfaccia web di visualizzazione log
-    - [ ] 4.2 Creazione di filtri e ricerca avanzata
-    - [ ] 4.3 Implementazione visualizzazioni e grafici per analisi dei log
-    - [ ] 4.4 Dashboard di monitoring dello stato del sistema
-    - [ ] 4.5 Sistema di alerting basato su pattern nei log
-  - [ ] **5. Integrazione CI/CD**
-    - [ ] 5.1 Configurazione deployment automatico del microservizio
-    - [ ] 5.2 Integrazione log con sistema di monitoraggio
-    - [ ] 5.3 Implementazione test automatici per il microservizio
-    - [ ] 5.4 Setup monitoraggio della salute del servizio
+      - [ ] 1.2.5 Implementazione server Express base
+      - [ ] 1.2.6 Aggiunta variabili d'ambiente al file .env
+      - [ ] 1.2.7 Test di avvio e funzionamento del container
+    - [ ] 1.3 Implementazione dello storage basato su file JSON
+      - [ ] 1.3.1 Creazione sistema di storage con rotazione dei file
+      - [ ] 1.3.2 Configurazione directory per i log
+      - [ ] 1.3.3 Implementazione funzioni base di lettura/scrittura
+    - [ ] 1.4 Implementazione API RESTful essenziali
+      - [ ] 1.4.1 Endpoint per ricezione log
+      - [ ] 1.4.2 Endpoint per consultazione log
+      - [ ] 1.4.3 Validazione base dell'input
+    - [ ] 1.5 Creazione UI web semplice
+      - [ ] 1.5.1 Dashboard HTML con Bootstrap
+      - [ ] 1.5.2 Funzionalità base di filtro e ricerca
+      - [ ] 1.5.3 Visualizzazione e aggiornamento automatico
+    - [ ] 1.6 Integrazione con Docker per raccolta log container
+      - [ ] 1.6.1 Implementazione collettore di log Docker
+      - [ ] 1.6.2 Configurazione accesso socket Docker
 - [ ] Completamento sistema di autenticazione e gestione utenti
   - [x] Modelli di base per gli utenti
   - [x] API di autenticazione JWT
@@ -121,7 +77,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
   - [ ] Vista mensile/settimanale
   - [ ] Filtri per reparto/team
 - [ ] Sistema di notifiche
-  - [ ] Integrazione del microservizio di logging con il sistema di notifiche
+  - [ ] Integrazione con il microservizio di logging per tracciamento eventi
   - [ ] Sistema di notifiche per nuove richieste
   - [ ] Notifiche di approvazione/rifiuto
 
@@ -131,7 +87,6 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Reportistica e analytics ferie
   - [ ] Dashboard statistiche utilizzo ferie
   - [ ] Report per team/reparto
-  - [ ] Integrazione con il microservizio di logging per analisi avanzate
 - [ ] Esportazione dati (CSV, Excel)
 - [ ] Sistema di notifiche avanzato (email)
 - [ ] Gestione festività nazionali/locali
@@ -152,7 +107,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Analisi requisiti dettagliata
 - [ ] Design database e API
 - [ ] Prototipazione UI/UX
-- [ ] Estensione del microservizio di logging per supportare il modulo di reperibilità
+- [ ] Estensione del microservizio di logging per supportare eventi di reperibilità
 
 ### Fase 2: Funzionalità Core Reperibilità (Aprile - Luglio 2026)
 - [ ] Modelli dati per turni di reperibilità
@@ -161,7 +116,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Dashboard per coordinatori
 - [ ] Visualizzazione turni personali
 - [ ] Notifiche automatizzate turni
-- [ ] Integrazione con il sistema di logging per auditing dei turni
+- [ ] Logging di eventi critici durante i turni
 
 **Milestone**: MVP Reperibilità (Luglio 2026)
 
@@ -170,7 +125,6 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Reportistica utilizzo reperibilità
 - [ ] Integrazioni con sistemi di allerta
 - [ ] Gestione straordinari e compensazioni
-- [ ] Analytics e ottimizzazione turni basate sui dati di logging
 
 **Milestone**: Rilascio Modulo Reperibilità v1.0 (Ottobre 2026)
 
@@ -180,7 +134,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Analisi requisiti dettagliata
 - [ ] Design database e API
 - [ ] Prototipazione UI/UX
-- [ ] Estensione del microservizio di logging per monitoraggio del lavoro remoto
+- [ ] Aggiornamento microservizio di logging per monitorare accessi remoti
 
 ### Fase 2: Funzionalità Core Smart Working (Gennaio - Marzo 2027)
 - [ ] Pianificazione giornate di lavoro remoto
@@ -188,7 +142,6 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Approvazione richieste
 - [ ] Dashboard occupazione uffici
 - [ ] Integrazione con modulo ferie
-- [ ] Logging automatico delle sessioni di smart working
 
 **Milestone**: MVP Smart Working (Marzo 2027)
 
@@ -198,7 +151,6 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Reportistica per normative compliance
 - [ ] Integrazione con strumenti di produttività
 - [ ] Gestione accordi personalizzati
-- [ ] Analisi dei pattern di produttività basata sui log
 
 **Milestone**: Rilascio Modulo Smart Working v1.0 (Giugno 2027)
 
@@ -208,7 +160,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Analisi requisiti dettagliata
 - [ ] Design database e API
 - [ ] Prototipazione UI/UX
-- [ ] Configurazione del microservizio di logging per tracking dettagliato delle attività
+- [ ] Configurazione tracciamento attività nel microservizio di logging
 
 ### Fase 2: Funzionalità Core Timesheet (Settembre - Novembre 2027)
 - [ ] Registrazione ore lavorative
@@ -216,7 +168,6 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Approvazione timesheet da manager
 - [ ] Dashboard personale
 - [ ] Reportistica base
-- [ ] Audit trail completo delle modifiche ai timesheet
 
 **Milestone**: MVP Timesheet (Novembre 2027)
 
@@ -226,27 +177,28 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Previsioni e allocazione risorse
 - [ ] Timesheet automatizzati (integrazione calendar)
 - [ ] Esportazione per sistemi di paghe
-- [ ] Analisi predittive basate sui dati storici di timesheet
 
 **Milestone**: Rilascio Modulo Timesheet v1.0 (Febbraio 2028)
 
 ## Evoluzione del Microservizio di Logging (2026-2028)
 
-### 2026 - Potenziamento Analitico
-- [ ] Implementazione machine learning per rilevamento anomalie
-- [ ] Sistemi di alerting intelligente basati su pattern
-- [ ] Dashboard avanzate per ogni modulo
+### 2026 - Miglioramenti Incrementali
+- [ ] Miglioramento dell'interfaccia utente con grafici e dashboard
+- [ ] Sistemi di alerting basati su pattern nei log
+- [ ] Aggiunta di retention policies configurabili
+- [ ] Supporto per metriche base di sistema
+
+### 2027 - Espansione delle Funzionalità
+- [ ] Miglioramento dello storage con supporto per database NoSQL
+- [ ] Integrazione con sistemi di monitoring esterni
+- [ ] Dashboard personalizzabili per ciascun modulo
+- [ ] Tracciamento avanzato delle azioni utente
+
+### 2028 - Potenziale Migrazione al Sistema Completo
+- [ ] Valutazione della migrazione al sistema di logging completo originale
+- [ ] Implementazione di analytics avanzati (solo se necessario)
 - [ ] Integrazione con sistemi di BI esterni
-
-### 2027 - Logging Predittivo
-- [ ] Implementazione di modelli predittivi per identificare trend
-- [ ] Suggerimenti proattivi per ottimizzazioni basate sui log
-- [ ] Monitoraggio avanzato delle performance utente
-
-### 2028 - Logging come Servizio
-- [ ] Esposizione API per estensioni di terze parti
-- [ ] Configurazione logging personalizzato per singoli clienti
-- [ ] Sistema di plugin per estendere le funzionalità di logging
+- [ ] Supporto per estensioni di terze parti
 
 ## Sviluppo Continuo e Integrazioni (2026-2028)
 
@@ -268,13 +220,13 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 ## Principi di Sviluppo e Metriche
 
 ### Principi di Sviluppo
-- Architettura a microservizi per facilità di espansione e scalabilità
+- Approccio pragmatico con focus sulle funzionalità essenziali prima
+- Architettura modulare per facilità di espansione
 - Test-driven development per garantire qualità
 - Backward compatibility per ogni aggiornamento
 - Accessibilità come requisito fondamentale
 - User experience coerente tra moduli
-- Performance e scalabilità come priorità
-- Logging centralizzato per tutte le operazioni
+- Logging centralizzato ma leggero per tutte le operazioni critiche
 
 ### Metriche di Rilascio
 - Copertura test: ≥ 80% per ogni modulo
