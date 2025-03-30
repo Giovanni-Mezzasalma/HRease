@@ -12,6 +12,10 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - ✅ Aggiornamento del file `.env.example` con l'URL API corretto
 - ✅ Implementazione completa del microservizio di logging semplificato
 
+## Legenda:
+- [ ] Non ancora fatto.
+- [/] In corso.
+- [x] Attività conclusa.
 ## Modulo 1: Gestione Ferie e Permessi (Q2 2025 - Q1 2026)
 
 ### Fase 1: Fondamenta Tecniche e Architettura (Marzo - Maggio 2025)
@@ -45,9 +49,9 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
   - [x] 1.6 Integrazione con Docker per raccolta log container
     - [x] 1.6.1 Implementazione collettore di log Docker
     - [x] 1.6.2 Configurazione accesso socket Docker
-  - [ ] 1.7 Verifica e test dell'implementazione del microservizio di logging
-    - [ ] 1.7.1 Test dell'integrazione con il backend Django
-      - [ ] 1.7.1.1 Implementare logger di test in una view Django
+  - [/] 1.7 Verifica e test dell'implementazione del microservizio di logging
+    - [/] 1.7.1 Test dell'integrazione con il backend Django
+      - [/] 1.7.1.1 Implementare logger di test in una view Django
       - [ ] 1.7.1.2 Verificare la corretta ricezione dei log nel microservizio
       - [ ] 1.7.1.3 Validare la visualizzazione dei log nella dashboard
     - [ ] 1.7.2 Test dell'integrazione con il frontend React
