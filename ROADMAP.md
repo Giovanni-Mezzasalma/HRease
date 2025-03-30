@@ -23,29 +23,29 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
 - [ ] Implementazione microservizio di logging semplificato
   - [ ] **1. Architettura del Microservizio di Logging Semplificato**
     - [x] 1.1 Definizione dell'architettura di alto livello
-    - [ ] 1.2 Setup container Docker dedicato per il servizio di logging
-      - [ ] 1.2.1 Creazione struttura directory del microservizio
-      - [ ] 1.2.2 Creazione Dockerfile specifico
-      - [ ] 1.2.3 Creazione package.json con dipendenze necessarie
-      - [ ] 1.2.4 Aggiornamento docker-compose.yml per includere il servizio
-      - [ ] 1.2.5 Implementazione server Express base
-      - [ ] 1.2.6 Aggiunta variabili d'ambiente al file .env
-      - [ ] 1.2.7 Test di avvio e funzionamento del container
-    - [ ] 1.3 Implementazione dello storage basato su file JSON
-      - [ ] 1.3.1 Creazione sistema di storage con rotazione dei file
-      - [ ] 1.3.2 Configurazione directory per i log
-      - [ ] 1.3.3 Implementazione funzioni base di lettura/scrittura
-    - [ ] 1.4 Implementazione API RESTful essenziali
-      - [ ] 1.4.1 Endpoint per ricezione log
-      - [ ] 1.4.2 Endpoint per consultazione log
-      - [ ] 1.4.3 Validazione base dell'input
-    - [ ] 1.5 Creazione UI web semplice
-      - [ ] 1.5.1 Dashboard HTML con Bootstrap
-      - [ ] 1.5.2 Funzionalità base di filtro e ricerca
-      - [ ] 1.5.3 Visualizzazione e aggiornamento automatico
-    - [ ] 1.6 Integrazione con Docker per raccolta log container
-      - [ ] 1.6.1 Implementazione collettore di log Docker
-      - [ ] 1.6.2 Configurazione accesso socket Docker
+    - [x] 1.2 Setup container Docker dedicato per il servizio di logging
+      - [x] 1.2.1 Creazione struttura directory del microservizio
+      - [x] 1.2.2 Creazione Dockerfile specifico
+      - [x] 1.2.3 Creazione package.json con dipendenze necessarie
+      - [x] 1.2.4 Aggiornamento docker-compose.yml per includere il servizio
+      - [x] 1.2.5 Implementazione server Express base
+      - [x] 1.2.6 Aggiunta variabili d'ambiente al file .env
+      - [x] 1.2.7 Test di avvio e funzionamento del container
+    - [x] 1.3 Implementazione dello storage basato su file JSON
+      - [x] 1.3.1 Creazione sistema di storage con rotazione dei file
+      - [x] 1.3.2 Configurazione directory per i log
+      - [x] 1.3.3 Implementazione funzioni base di lettura/scrittura
+    - [x] 1.4 Implementazione API RESTful essenziali
+      - [x] 1.4.1 Endpoint per ricezione log
+      - [x] 1.4.2 Endpoint per consultazione log
+      - [x] 1.4.3 Validazione base dell'input
+    - [x] 1.5 Creazione UI web semplice
+      - [x] 1.5.1 Dashboard HTML con Bootstrap
+      - [x] 1.5.2 Funzionalità base di filtro e ricerca
+      - [x] 1.5.3 Visualizzazione e aggiornamento automatico
+    - [x] 1.6 Integrazione con Docker per raccolta log container
+      - [x] 1.6.1 Implementazione collettore di log Docker
+      - [x] 1.6.2 Configurazione accesso socket Docker
 - [ ] Completamento sistema di autenticazione e gestione utenti
   - [x] Modelli di base per gli utenti
   - [x] API di autenticazione JWT
