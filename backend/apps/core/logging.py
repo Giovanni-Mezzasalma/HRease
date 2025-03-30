@@ -49,6 +49,18 @@ class SimpleLogHandler(logging.Handler):
             # Formatta il messaggio di log usando il formatter configurato
             log_entry = self.format(record)
             
+            # Mappa i livelli di log di Django a quelli del microservizio
+            level_map = {
+                'DEBUG': 'debug',
+                'INFO': 'info',
+                'WARNING': 'warn',
+                'ERROR': 'error',
+                'CRITICAL': 'error'
+            }
+            
+            # Usa il mapping o il livello di default 'info'
+            level = level_map.get(record.levelname, 'info').lower()
+            
             # Estrai eventuali dati extra dal record
             extra_data = {}
             for key, value in record.__dict__.items():
@@ -65,7 +77,7 @@ class SimpleLogHandler(logging.Handler):
             # Prepara i dati per l'invio
             log_data = {
                 'source': 'backend',
-                'level': record.levelname.lower(),
+                'level': level,
                 'message': log_entry,
                 'timestamp': datetime.utcnow().isoformat(),
                 'meta': {

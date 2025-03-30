@@ -16,8 +16,8 @@ RUN npm install
 # Copia il resto dei file dell'applicazione
 COPY . .
 
-# Crea la directory per i log se non esiste
-RUN mkdir -p /app/logs
+# Crea le directory se non esistono
+RUN mkdir -p /app/logs /app/ui/css /app/ui/js
 
 # Espone la porta su cui il servizio sarà in ascolto
 EXPOSE 8080

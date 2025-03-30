@@ -179,7 +179,7 @@ app.post('/api/logs', (req, res) => {
   }
   
   // Verifica che il livello sia valido
-  const validLevels = ['debug', 'info', 'warn', 'error'];
+  const validLevels = ['debug', 'info', 'warn', 'error', 'critical'];
   if (!validLevels.includes(level.toLowerCase())) {
     return res.status(400).json({ 
       error: 'Invalid log level', 

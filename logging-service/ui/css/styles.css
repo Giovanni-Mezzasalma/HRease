@@ -1,0 +1,101 @@
+/* Stile personalizzato per il dashboard */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #3498db !important;
+  }
+  
+  .log-container {
+    height: calc(100vh - 200px);
+    min-height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .log-entry {
+    padding: 10px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    border-left: 4px solid transparent;
+    transition: background-color 0.2s;
+  }
+  
+  .log-entry:hover {
+    background-color: rgba(0,0,0,0.025);
+  }
+  
+  /* Colori per i diversi livelli di log */
+  .log-debug { border-left-color: #6c757d; background-color: #f8f9fa; }
+  .log-info { border-left-color: #17a2b8; background-color: #e3f2fd; }
+  .log-warn { border-left-color: #ffc107; background-color: #fff3cd; }
+  .log-error { border-left-color: #dc3545; background-color: #f8d7da; }
+  .log-critical { border-left-color: #7c0000; background-color: #ffcccc; }
+  
+  .log-meta {
+    background-color: rgba(0,0,0,0.03);
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 6px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .timestamp {
+    color: #6c757d;
+    font-size: 12px;
+  }
+  
+  /* Stile per i filtri temporali */
+  .date-filter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .date-filter label {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  
+  /* Stile per lo stato di aggiornamento */
+  .auto-refresh-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .auto-refresh-active {
+    background-color: #28a745;
+  }
+  
+  .auto-refresh-paused {
+    background-color: #dc3545;
+  }
+  
+  /* Spinner per il caricamento */
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+  
+  /* Badge per conteggio log */
+  .source-badge {
+    background-color: #3498db;
+    color: white;
+    font-size: 0.75em;
+    padding: 0.25em 0.5em;
+    border-radius: 1em;
+    margin-left: 0.5em;
+  }
