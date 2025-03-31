@@ -167,12 +167,12 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',  # Cambiato da INFO a DEBUG
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
         'simple_log_service': {
-            'level': 'INFO',
+            'level': 'DEBUG',  # Cambiato da INFO a DEBUG
             'class': 'apps.core.logging.SimpleLogHandler',
             'formatter': 'verbose',
         },
@@ -180,17 +180,28 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console', 'simple_log_service'],
-            'level': 'INFO',
+            'level': 'INFO',  # Mantieni questo a INFO per evitare troppi log
             'propagate': False,
         },
         'apps': {
             'handlers': ['console', 'simple_log_service'],
-            'level': 'INFO',
+            'level': 'DEBUG',  # Cambiato da INFO a DEBUG
+            'propagate': False,
+        },
+        # Aggiungi questo logger per evitare loop
+        'urllib3': {
+            'handlers': ['console'],
+            'level': 'INFO',  # Mantieni questo a INFO
+            'propagate': False,
+        },
+        'requests': {
+            'handlers': ['console'],
+            'level': 'INFO',  # Mantieni questo a INFO 
             'propagate': False,
         },
     },
     'root': {
         'handlers': ['console', 'simple_log_service'],
-        'level': 'INFO',
+        'level': 'DEBUG',  # Cambiato da INFO a DEBUG
     },
 }

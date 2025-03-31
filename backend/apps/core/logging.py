@@ -46,6 +46,15 @@ class SimpleLogHandler(logging.Handler):
             record: LogRecord da inviare
         """
         try:
+
+            # Ignora i log generati dal modulo requests o urllib3 per evitare loop
+            if record.name.startswith(('requests', 'urllib3')):
+                return
+                
+            # Ignora i log generati all'interno del SimpleLogHandler stesso
+            if record.module == 'logging' or record.module == self.__class__.__module__:
+                return
+            
             # Formatta il messaggio di log usando il formatter configurato
             log_entry = self.format(record)
             
