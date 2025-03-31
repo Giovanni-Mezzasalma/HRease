@@ -35,6 +35,11 @@ def test_logging(request):
         'test_id': 'error-test-1',
         'endpoint': 'test_logging'
     })
+
+    logger.critical("Test critical log dal backend Django", extra={
+        'test_id': 'critical-test-1',
+        'endpoint': 'test_logging'
+    })
     
     # Restituisci una risposta JSON
     return JsonResponse({

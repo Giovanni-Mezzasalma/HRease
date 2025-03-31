@@ -64,7 +64,7 @@ class SimpleLogHandler(logging.Handler):
                 'INFO': 'info',
                 'WARNING': 'warn',
                 'ERROR': 'error',
-                'CRITICAL': 'error'
+                'CRITICAL': 'critical'
             }
             
             # Usa il mapping o il livello di default 'info'
