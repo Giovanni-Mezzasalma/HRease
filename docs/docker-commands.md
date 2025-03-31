@@ -362,3 +362,8 @@ echo "== Fine Rapporto =="
 - Le modifiche al Dockerfile o docker-compose.yml richiedono ricompilazione
 
 Questo documento è pensato come riferimento rapido. Per dettagli completi, consultare la [documentazione ufficiale di Docker](https://docs.docker.com/) e [Docker Compose](https://docs.docker.com/compose/).
+
+
+test log:
+curl http://localhost:8000/api/v1/test/logging/
+docker-compose logs backend | grep "Test"
