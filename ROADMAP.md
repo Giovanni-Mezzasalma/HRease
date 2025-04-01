@@ -49,7 +49,7 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
   - [x] 1.6 Integrazione con Docker per raccolta log container
     - [x] 1.6.1 Implementazione collettore di log Docker
     - [x] 1.6.2 Configurazione accesso socket Docker
-  - [x] 1.7 Verifica e test dell'implementazione del microservizio di logging
+  - [/] 1.7 Verifica e test dell'implementazione del microservizio di logging
     - [x] 1.7.1 Test dell'integrazione con il backend Django
       - [x] 1.7.1.1 Implementare logger di test in una view Django
       - [x] 1.7.1.2 Verificare la corretta ricezione dei log nel microservizio
