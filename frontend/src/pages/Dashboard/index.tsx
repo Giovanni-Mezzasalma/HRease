@@ -1,13 +1,27 @@
 // src/pages/Dashboard/index.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import './Dashboard.css';
 import Header from './components/Header';
 import UserInfoCard from './components/UserInfoCard';
+import logger from '../../utils/logger';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
   
+  useEffect(() => {
+    logger.info('Dashboard component mounted', { userId: user?.id });
+    
+    return () => {
+      logger.info('Dashboard component unmounted', { userId: user?.id });
+    };
+  }, [user]);
+  
+  const handleLogout = () => {
+    logger.info('User initiated logout from dashboard', { userId: user?.id });
+    logout();
+  };
+
   return (
     <div className="dashboard">
       <Header user={user} onLogout={logout} />

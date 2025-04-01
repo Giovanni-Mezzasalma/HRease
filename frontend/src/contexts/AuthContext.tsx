@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { login as loginService, fetchUserProfile, checkAuthStatus } from '../services/auth';
+import logger from '../utils/logger';
 
 /**
  * Interfaccia che definisce la struttura dei dati utente.
@@ -73,6 +74,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const initAuth = async () => {
       setIsLoading(true);
+      logger.info('Initializing authentication state');
       
       try {
         // Verifica se c'è un token valido
@@ -84,14 +86,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             setIsAuthenticated(true);
           } else {
             // Se c'è un token ma nessun dato utente, li recupera dal server
+            logger.info('Token found but no user data, fetching profile');
             const userData = await fetchUserProfile();
             setUser(userData);
             localStorage.setItem('user', JSON.stringify(userData));
             setIsAuthenticated(true);
+            logger.info('User profile fetched successfully', { userId: userData.id });
           }
+        }else {
+          logger.info('No valid authentication found');
         }
       } catch (error) {
-        console.error('Auth initialization error:', error);
+        logger.error('Error during auth initialization', { error: error instanceof Error ? error.message : String(error) });
         // In caso di errore, esegue il logout
         logout();
       } finally {
@@ -139,6 +145,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
    * Rimuove i token e i dati utente dal localStorage e resetta lo stato.
    */
   const logout = () => {
+    logger.info('User logging out', { userId: user?.id });
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('user');

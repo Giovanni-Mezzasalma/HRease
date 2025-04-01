@@ -1,8 +1,9 @@
 // frontend/src/pages/ResetPassword/index.tsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { requestPasswordReset } from '../../services/auth';
+import logger from '../../utils/logger';
 
 const ResetPassword: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -10,10 +11,19 @@ const ResetPassword: React.FC = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    logger.info('Reset password component mounted');
+    
+    return () => {
+      logger.info('Reset password component unmounted');
+    };
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email) {
+      logger.warn('Reset password attempt with empty email');
       setError('Please enter your email address');
       return;
     }
@@ -21,15 +31,22 @@ const ResetPassword: React.FC = () => {
     setIsLoading(true);
     setError('');
     setMessage('');
+    logger.info('Password reset requested', { email });
     
     try {
       const response = await requestPasswordReset({ email });
       if (response.status === 'success') {
+        logger.info('Password reset email sent successfully', { email });
         setMessage('Reset password instructions have been sent to your email.');
       } else {
         throw new Error('Failed to request password reset');
       }
     } catch (err: any) {
+      logger.error('Password reset request failed', { 
+        email,
+        error: err.message,
+        status: err.response?.status
+      });
       if (err.response?.data?.message) {
         setError(err.response.data.message);
       } else if (err.message) {

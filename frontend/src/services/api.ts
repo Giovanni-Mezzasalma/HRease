@@ -5,6 +5,7 @@ import axios, {
   InternalAxiosRequestConfig, 
   AxiosResponse 
 } from 'axios';
+import logger from '../utils/logger';
 
 // Assicurati che questo URL corrisponda alla configurazione del tuo backend
 const API_URL = 'http://localhost:8000/api/v1';
@@ -34,12 +35,27 @@ api.interceptors.request.use(
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    
+    logger.debug('API Request', { 
+      method: config.method, 
+      url: config.url,
+      hasAuth: !!token
+    });
+    
     return config;
   },
   (error: AxiosError) => {
+    logger.error('API Request Error', { 
+      error: error.message,
+      config: error.config ? {
+        method: error.config.method,
+        url: error.config.url
+      } : null
+    });
     return Promise.reject(error);
   }
 );
+
 
 /**
  * Interceptor per le risposte.
@@ -48,8 +64,22 @@ api.interceptors.request.use(
  * la richiesta originale.
  */
 api.interceptors.response.use(
-  (response: AxiosResponse) => response,
+  (response: AxiosResponse) => {
+    logger.debug('API Response Received', { 
+      status: response.status, 
+      url: response.config.url,
+      method: response.config.method
+    });
+    return response;
+  },
   async (error: AxiosError) => {
+    logger.error('API Response Error', { 
+      status: error.response?.status,
+      url: error.config?.url,
+      method: error.config?.method,
+      message: error.message,
+      data: error.response?.data
+    });
     const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
     
     // Se riceve un 401 (Unauthorized) e non ha già tentato di rifare la richiesta

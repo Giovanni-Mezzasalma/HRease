@@ -2,6 +2,7 @@
 import React from 'react';
 import { User } from '../../../contexts/AuthContext';
 import './Header.css';
+import logger from '../../../utils/logger';
 
 interface HeaderProps {
   user: User | null;
@@ -9,6 +10,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ user, onLogout }) => {
+  const handleLogout = () => {
+    logger.info('User clicked logout button in header', { userId: user?.id });
+    onLogout();
+  };
+  
   return (
     <nav className="header">
       <div className="header-container">
@@ -24,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLogout }) => {
                   {user?.first_name} {user?.last_name}
                 </span>
                 <button
-                  onClick={onLogout}
+                  onClick={handleLogout}
                   className="logout-button"
                   aria-label="Logout"
                 >
