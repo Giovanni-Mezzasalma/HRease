@@ -1,0 +1,70 @@
+/* src/pages/Dashboard/components/Header.css */
+.header {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+  }
+  
+  .header-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+  
+  .header-user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-profile {
+    position: relative;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .user-name {
+    color: #4b5563;
+  }
+  
+  .logout-button {
+    background-color: #2563eb;
+    padding: 4px;
+    border-radius: 9999px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .logout-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 0 0 4px #2563eb;
+  }
+  
+  .logout-icon {
+    height: 24px;
+    width: 24px;
+  }

@@ -7,7 +7,7 @@ import { login as loginService, fetchUserProfile, checkAuthStatus } from '../ser
  * Interfaccia che definisce la struttura dei dati utente.
  * Contiene le informazioni di base dell'utente autenticato.
  */
-interface User {
+export interface User {
   id: number;
   email: string;
   first_name: string;

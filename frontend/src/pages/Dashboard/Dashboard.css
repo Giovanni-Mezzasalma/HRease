@@ -1,0 +1,50 @@
+/* src/pages/Dashboard/Dashboard.css */
+.dashboard {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .dashboard-content {
+    padding-top: 10px;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .dashboard-header {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1f2937;
+  }
+  
+  .dashboard-main {
+    margin: 0 auto;
+  }
+  
+  .dashboard-panel {
+    padding: 16px 0;
+  }
+  
+  .dashboard-welcome {
+    border: 4px dashed #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+  
+  .welcome-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-text {
+    color: #6b7280;
+    margin-bottom: 1rem;
+  }

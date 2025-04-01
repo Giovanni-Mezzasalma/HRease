@@ -1,0 +1,63 @@
+/* src/pages/Dashboard/components/UserInfoCard.css */
+.user-card {
+    margin-top: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-card-header {
+    padding: 1rem;
+  }
+  
+  .user-card-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #1f2937;
+  }
+  
+  .user-card-subtitle {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .user-card-content {
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .user-field {
+    display: grid;
+    padding: 1.25rem 1rem;
+    background-color: white;
+  }
+  
+  .user-field-alt {
+    background-color: #f9fafb;
+  }
+  
+  @media (min-width: 640px) {
+    .user-field {
+      grid-template-columns: 3fr 9fr;
+      gap: 1rem;
+    }
+  }
+  
+  .field-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+  }
+  
+  .field-value {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #1f2937;
+  }
+  
+  @media (min-width: 640px) {
+    .field-value {
+      margin-top: 0;
+    }
+  }
