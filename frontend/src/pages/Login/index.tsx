@@ -3,8 +3,11 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import logger from '../../utils/logger';
 
 const Login: React.FC = () => {
+  logger.info('Login component mounted', { component: 'Login' });
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,7 +19,10 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    logger.info('Login form submitted', { email });
+    
     if (!email || !password) {
+      logger.warn('Login attempt with missing credentials', { hasEmail: !!email, hasPassword: !!password });
       setError('Per favore, inserisci sia email che password');
       return;
     }
@@ -27,9 +33,17 @@ const Login: React.FC = () => {
     try {
       console.log('Tentativo di login con:', { email });
       await login(email, password);
+      logger.info('Login successful', { userId: email });
       console.log('Login riuscito, reindirizzamento a dashboard');
       navigate('/dashboard');
     } catch (err: any) {
+      logger.error('Login failed', { 
+        email,
+        errorType: err.response ? 'API Error' : 'Network Error',
+        status: err.response?.status,
+        message: err.message
+      });
+      
       console.error('Errore completo di login:', err);
       
       if (err.response) {
