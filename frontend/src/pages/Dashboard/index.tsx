@@ -5,6 +5,7 @@ import './Dashboard.css';
 import Header from './components/Header';
 import UserInfoCard from './components/UserInfoCard';
 import logger from '../../utils/logger';
+import { Link } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
@@ -43,6 +44,13 @@ const Dashboard: React.FC = () => {
                 </p>
                 
                 <UserInfoCard user={user} />
+
+                <div className="mt-4">
+                  <Link to="/test/errors" className="btn btn-outline-secondary">
+                    Test Logging Errori
+                  </Link>
+                </div>
+
               </div>
             </div>
           </div>

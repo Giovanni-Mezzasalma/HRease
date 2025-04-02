@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import ResetPassword from './pages/ResetPassword';
 import ResetPasswordConfirm from './pages/ResetPasswordConfirm';
 import Dashboard from './pages/Dashboard'; // Creeremo questo componente dopo
+import ErrorTest from './pages/ErrorTest';
 
 // Protected route component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -64,6 +65,12 @@ const AppRoutes: React.FC = () => {
       <Route path="/dashboard" element={
         <ProtectedRoute>
           <Dashboard />
+        </ProtectedRoute>
+      } />
+
+      <Route path="/test/errors" element={
+        <ProtectedRoute>
+          <ErrorTest />
         </ProtectedRoute>
       } />
       
