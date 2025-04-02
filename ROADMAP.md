@@ -54,10 +54,10 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
       - [x] 1.7.1.1 Implementare logger di test in una view Django
       - [x] 1.7.1.2 Verificare la corretta ricezione dei log nel microservizio
       - [x] 1.7.1.3 Validare la visualizzazione dei log nella dashboard
-    - [/] 1.7.2 Test dell'integrazione con il frontend React
+    - [x] 1.7.2 Test dell'integrazione con il frontend React
       - [x] 1.7.2.1 Aggiungere logging nei componenti chiave
       - [x] 1.7.2.2 Verificare la corretta propagazione degli eventi utente
-      - [/] 1.7.2.3 Testare il logging degli errori non gestiti
+      - [x] 1.7.2.3 Testare il logging degli errori non gestiti
     - [ ] 1.7.3 Test dello storage e della rotazione dei log
       - [ ] 1.7.3.1 Generare volume di log per testare la rotazione
       - [ ] 1.7.3.2 Verificare la corretta archiviazione e persistenza
