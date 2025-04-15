@@ -58,9 +58,9 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
       - [x] 1.7.2.1 Aggiungere logging nei componenti chiave
       - [x] 1.7.2.2 Verificare la corretta propagazione degli eventi utente
       - [x] 1.7.2.3 Testare il logging degli errori non gestiti
-    - [ ] 1.7.3 Test dello storage e della rotazione dei log
-      - [ ] 1.7.3.1 Generare volume di log per testare la rotazione
-      - [ ] 1.7.3.2 Verificare la corretta archiviazione e persistenza
+    - [x] 1.7.3 Test dello storage e della rotazione dei log
+      - [x] 1.7.3.1 Generare volume di log per testare la rotazione
+      - [x] 1.7.3.2 Verificare la corretta archiviazione e persistenza
     - [ ] 1.7.4 Test delle funzionalità di ricerca e filtraggio
       - [ ] 1.7.4.1 Testare i filtri per livello, testo e data
       - [ ] 1.7.4.2 Verificare la paginazione e caricamento incrementale
