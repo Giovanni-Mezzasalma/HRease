@@ -78,6 +78,10 @@ services:
       - ./logging-service/logs:/app/logs
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
+    environment:
+      - MAX_LOGS_PER_FILE=2000
+      - MAX_BACKUP_FILES=5
+      - LOG_ROTATION_CHECK_INTERVAL=300000
     networks:
       - app-network
 

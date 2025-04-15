@@ -16,8 +16,14 @@ const moment = require('moment');
 // Configurazione server
 const app = express();
 const PORT = process.env.PORT || 8080;
-const MAX_LOGS_PER_FILE = 1000;  // Numero massimo di log per file JSON
 const DOCKER_POLL_INTERVAL = 60000;  // Intervallo di polling dei log Docker (1 minuto)
+
+// Aggiungi queste configurazioni nella sezione di configurazione del server
+const MAX_LOGS_PER_FILE = parseInt(process.env.MAX_LOGS_PER_FILE || '1000');  // Numero configurabile di log per file
+const MAX_BACKUP_FILES = parseInt(process.env.MAX_BACKUP_FILES || '5');  // Numero di file di backup da mantenere
+const LOG_ROTATION_CHECK_INTERVAL = parseInt(process.env.LOG_ROTATION_CHECK_INTERVAL || '300000');  // Intervallo di controllo rotazione (5 minuti)
+
+const logRotation = require('./logRotation');
 
 // Middleware
 app.use(cors());  // Abilita CORS per consentire richieste cross-origin
@@ -216,6 +222,11 @@ app.get('/api/sources', (req, res) => {
   res.json({ sources });
 });
 
+// Imposta il job periodico per la rotazione dei log
+const rotationInterval = setInterval(() => {
+  logRotation.checkAndRotateLogs(LOG_DIR, MAX_LOGS_PER_FILE, MAX_BACKUP_FILES);
+}, LOG_ROTATION_CHECK_INTERVAL);
+
 /**
  * Raccoglie log dai container Docker
  * Usa l'API Docker per leggere i log dai container e li salva nel logStore
@@ -288,6 +299,7 @@ const dockerLogInterval = setInterval(collectDockerLogs, DOCKER_POLL_INTERVAL);
 process.on('SIGTERM', () => {
   console.log('SIGTERM received, shutting down gracefully');
   clearInterval(dockerLogInterval);
+  clearInterval(rotationInterval);
   server.close(() => {
     console.log('Server closed');
     process.exit(0);
