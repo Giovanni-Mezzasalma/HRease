@@ -61,9 +61,9 @@ Il progetto ha completato le fasi iniziali dell'infrastruttura tecnica, con l'im
     - [x] 1.7.3 Test dello storage e della rotazione dei log
       - [x] 1.7.3.1 Generare volume di log per testare la rotazione
       - [x] 1.7.3.2 Verificare la corretta archiviazione e persistenza
-    - [ ] 1.7.4 Test delle funzionalità di ricerca e filtraggio
-      - [ ] 1.7.4.1 Testare i filtri per livello, testo e data
-      - [ ] 1.7.4.2 Verificare la paginazione e caricamento incrementale
+    - [x] 1.7.4 Test delle funzionalità di ricerca e filtraggio
+      - [x] 1.7.4.1 Testare i filtri per livello, testo e data
+      - [x] 1.7.4.2 Verificare la paginazione e caricamento incrementale
     - [ ] 1.7.5 Documentazione delle funzionalità implementate
       - [ ] 1.7.5.1 Aggiornare la documentazione per sviluppatori
       - [ ] 1.7.5.2 Creare guida all'uso della dashboard di logging
